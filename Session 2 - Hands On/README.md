@@ -1,29 +1,21 @@
 ## Continuous deployment to Azure with Visual Studio and Git with ASP.NET Core
 
-1. [Prerequisites](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#prerequisites)
-2. [Create an ASP.NET Core web app](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#create-an-aspnet-core-web-app)
-3. [Create a web app in the Azure Portal](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#create-a-web-app-in-the-azure-portal)
-4. [Enable Git publishing for the new web app](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#enable-git-publishing-for-the-new-web-app)
-5. [Publish the web app to Azure App Service](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#publish-the-web-app-to-azure-app-service)
-6. [Run the app in Azure](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#run-the-app-in-azure)
-7. [Update the web app and republish](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#update-the-web-app-and-republish)
-8. [View the updated web app in Azure](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#view-the-updated-web-app-in-azure)
-
-Important
-
-**Notice for using ASP.NET Core 2.1 preview releases**
-
-See [Deploy ASP.NET Core preview release to Azure App Service](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/index?view=aspnetcore-2.1#deploy-aspnet-core-preview-release-to-azure-app-service).
+1. [Prerequisites](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#prerequisites)
+2. [Create an ASP.NET Core web app](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#create-an-aspnet-core-web-app)
+3. [Create a web app in the Azure Portal](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#create-a-web-app-in-the-azure-portal)
+4. [Enable Git publishing for the new web app](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#enable-git-publishing-for-the-new-web-app)
+5. [Publish the web app to Azure App Service](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#publish-the-web-app-to-azure-app-service)
+6. [Run the app in Azure](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#run-the-app-in-azure)
+7. [Update the web app and republish](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#update-the-web-app-and-republish)
+8. [View the updated web app in Azure](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#view-the-updated-web-app-in-azure)
 
 This tutorial shows how to create an ASP.NET Core web app using Visual Studio and deploy it from Visual Studio to Azure App Service using continuous deployment.
 
 See also [Use VSTS to Build and Publish to an Azure Web App with Continuous Deployment](https://docs.microsoft.com/en-us/vsts/build-release/archive/apps/aspnet/aspnet-4-ci-cd-azure-automatic), which shows how to configure a continuous delivery (CD) workflow for [Azure App Service](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-overview) using Visual Studio Team Services. Azure Continuous Delivery in Team Services simplifies setting up a robust deployment pipeline to publish updates for apps hosted in Azure App Service. The pipeline can be configured from the Azure portal to build, run tests, deploy to a staging slot, and then deploy to production.
 
-Note
-
 To complete this tutorial, a Microsoft Azure account is required. To obtain an account, [activate MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A261C142F) or [sign up for a free trial](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-### Prerequisites[](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#prerequisites)
+### Prerequisites[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#prerequisites)
 
 This tutorial assumes the following software is installed:
 
@@ -31,31 +23,20 @@ This tutorial assumes the following software is installed:
 - [.NET Core SDK 2.0 or later](https://www.microsoft.com/net/download) 
 - [Git](https://git-scm.com/downloads) for Windows
 
-### Create an ASP.NET Core web app[](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#create-an-aspnet-core-web-app)
+### Create an ASP.NET Core web app[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#create-an-aspnet-core-web-app)
 
 1. Start Visual Studio. 
 2. From the **File** menu, select **New** &gt; **Project**. 
-3. Select the **ASP.NET Core Web Application** project template. It appears under **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **.NET Core**. Name the 
+3. Select the **ASP.NET Core Web Application** project template. It appears under **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **.NET Core**. Name the project SampleWebAppDemo. Select the **Create new Git repository** option and click **OK**. 
+4. In the **New ASP.NET Core Project** dialog, select the ASP.NET Core **Empty** template, then click **OK**. 
+![Image1](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/01-new-project.png)
 
-project 
-
-SampleWebAppDemo
-
-. Select the **Create new Git repository** option and click **OK**. 
-4. In the **New ASP.NET Core Project**
-
-dialog, select the ASP.NET Core **Empty** template, then click **OK**. 
-
-Note
-
-The most recent release of .NET Core is 2.0.
-
-#### Running the web app locally[](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#running-the-web-app-locally)
+#### Running the web app locally[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#running-the-web-app-locally)
 
 1. Once Visual Studio finishes creating the app, run the app by selecting **Debug** &gt; **Start Debugging**. As an alternative, press **F5**. It may take time to initialize Visual Studio and the new app. Once it's complete, the browser shows the running app. 
 2. After reviewing the running Web app, close the browser and select the "Stop Debugging" icon in the toolbar of Visual Studio to stop the app. 
 
-### Create a web app in the Azure Portal[](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#create-a-web-app-in-the-azure-portal)
+### Create a web app in the Azure Portal[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#create-a-web-app-in-the-azure-portal)
 
 The following steps create a web app in the Azure Portal:
 
@@ -65,7 +46,7 @@ The following steps create a web app in the Azure Portal:
 4. In the **Web App** blade, enter a unique value for the **App Service Name**. Note The **App Service Name** name must be unique. The portal enforces this rule when the name is provided. If providing a different value, substitute that value for each occurrence of **SampleWebAppDemo** in this tutorial.  Also in the **Web App** blade, select an existing **App Service Plan/Location** or create a new one. If creating a new plan, select the pricing tier, location, and other options. For more information on App Service plans, see [Azure App Service plans in-depth overview](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview). 
 5. Select **Create**. Azure will provision and start the web app. 
 
-### Enable Git publishing for the new web app[](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#enable-git-publishing-for-the-new-web-app)
+### Enable Git publishing for the new web app[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#enable-git-publishing-for-the-new-web-app)
 
 Git is a distributed version control system that can be used to deploy an Azure App Service web app. Web app code is stored in a local Git repository, and the code is deployed to Azure by pushing to a remote repository.
 
@@ -84,7 +65,7 @@ user name and password. Save the password for later use when setting up Git.
 7. In the **Web App** blade, select **Settings** &gt; **Properties**. The URL of the remote Git repository to deploy to is shown under **GIT URL**. 
 8. Copy the **GIT URL** value for later use in the tutorial. 
 
-### Publish the web app to Azure App Service[](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#publish-the-web-app-to-azure-app-service)
+### Publish the web app to Azure App Service[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#publish-the-web-app-to-azure-app-service)
 
 In this section, create a local Git repository using Visual Studio and push from that repository to Azure to deploy the web app. The steps involved include the following:
 
@@ -126,13 +107,13 @@ To https://username@samplewebappdemo01.scm.azurewebsites.net:443/SampleWebAppDem
 Branch master set up to track remote branch master from Azure-SampleApp.
 Note If collaboration on the project is required, consider pushing to [GitHub](https://github.com/) before pushing to Azure.  
 
-#### Verify the Active Deployment[](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#verify-the-active-deployment)
+#### Verify the Active Deployment[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#verify-the-active-deployment)
 
 Verify that the web app transfer from the local environment to Azure is successful.
 
 In the [Azure Portal](https://portal.azure.com/), select the web app. Select **Deployment** &gt; **Deployment options**.
 
-### Run the app in Azure[](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#run-the-app-in-azure)
+### Run the app in Azure[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#run-the-app-in-azure)
 
 Now that the web app is deployed to Azure, run the app.
 
@@ -143,7 +124,7 @@ This can be accomplished in two ways:
 
 http://SampleWebAppDemo.azurewebsites.net
 
-### Update the web app and republish[](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#update-the-web-app-and-republish)
+### Update the web app and republish[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#update-the-web-app-and-republish)
 
 After making changes to the local code, republish:
 
@@ -176,7 +157,7 @@ changing to the project directory, and entering a git command. Example:
 
 git push -u Azure-SampleApp master
 
-### View the updated web app in Azure[](https://docs.microsoft.com/en-us/aspnet/core/host-and-deploy/azure-apps/azure-continuous-deployment?view=aspnetcore-2.1#view-the-updated-web-app-in-azure)
+### View the updated web app in Azure[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#view-the-updated-web-app-in-azure)
 
 View the updated web app by selecting **Browse** from the web app blade in the Azure Portal or by opening a browser and entering the URL for the web app. Example: 
 
