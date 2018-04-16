@@ -146,33 +146,15 @@ http://SampleWebAppDemo.azurewebsites.net
 After making changes to the local code, republish:
 
 1. In **Solution Explorer** of Visual Studio, open the _Startup.cs_ file. 
-2. In the 
-
-Configure method, modify the 
-
-Response.WriteAsync method so that it appears as follows: C#Copy			  
+2. In the Configure method, modify the Response.WriteAsync method so that it appears as follows: 		  
 
 await context.Response.WriteAsync("Hello World! Deploy to Azure.");
 
 3. Save the changes to _Startup.cs_. 
 4. In **Solution Explorer**, right-click **Solution 'SampleWebAppDemo'** and select **Commit**. The **Team Explorer** is displayed. 
-5. Enter a commit message, such 
-
-as 
-
-Update #2
-
-. 
+5. Enter a commit message, such as Update #2. 
 6. Press the **Commit** button to commit the project changes. 
 7. Select **Home** &gt; **Sync** &gt; **Actions** &gt; **Push**. 
-
-Note
-
-As an alternative, push the changes from the **Command Window** by opening the **Command Window**, 
-
-changing to the project directory, and entering a git command. Example:
-
-git push -u Azure-SampleApp master
 
 ### View the updated web app in Azure[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#view-the-updated-web-app-in-azure)
 
