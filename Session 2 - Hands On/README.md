@@ -28,7 +28,7 @@ This tutorial assumes the following software is installed:
 1. Start Visual Studio. 
 2. From the **File** menu, select **New** &gt; **Project**. 
 3. Select the **ASP.NET Core Web Application** project template. It appears under **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **.NET Core**. Name the project SampleWebAppDemo. Select the **Create new Git repository** option and click **OK**. 
-![Image1](../images/01-new-project.png?raw=true)
+![Image1](images/01-new-project.png)
 
 4. In the **New ASP.NET Core Project** dialog, select the ASP.NET Core **Empty** template, then click **OK**. 
 ![Image2](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/02-web-site-template.png?raw=true)
