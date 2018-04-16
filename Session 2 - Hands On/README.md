@@ -28,12 +28,18 @@ This tutorial assumes the following software is installed:
 1. Start Visual Studio. 
 2. From the **File** menu, select **New** &gt; **Project**. 
 3. Select the **ASP.NET Core Web Application** project template. It appears under **Installed** &gt; **Templates** &gt; **Visual C#** &gt; **.NET Core**. Name the project SampleWebAppDemo. Select the **Create new Git repository** option and click **OK**. 
+![Image1](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/01-new-project.png?raw=true)
+
 4. In the **New ASP.NET Core Project** dialog, select the ASP.NET Core **Empty** template, then click **OK**. 
-![Image1](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/01-new-project.png)
+![Image2](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/02-web-site-template.png?raw=true)
 
 #### Running the web app locally[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#running-the-web-app-locally)
 
 1. Once Visual Studio finishes creating the app, run the app by selecting **Debug** &gt; **Start Debugging**. As an alternative, press **F5**. It may take time to initialize Visual Studio and the new app. Once it's complete, the browser shows the running app. 
+
+![Image3](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/04-browser-runapp.png?raw=true)
+
+
 2. After reviewing the running Web app, close the browser and select the "Stop Debugging" icon in the toolbar of Visual Studio to stop the app. 
 
 ### Create a web app in the Azure Portal[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#create-a-web-app-in-the-azure-portal)
@@ -43,8 +49,17 @@ The following steps create a web app in the Azure Portal:
 1. Log in to the [Azure Portal](https://portal.azure.com/). 
 2. Select **NEW** at the top left of the portal interface. 
 3. Select **Web + Mobile** &gt; **Web App**. 
-4. In the **Web App** blade, enter a unique value for the **App Service Name**. Note The **App Service Name** name must be unique. The portal enforces this rule when the name is provided. If providing a different value, substitute that value for each occurrence of **SampleWebAppDemo** in this tutorial.  Also in the **Web App** blade, select an existing **App Service Plan/Location** or create a new one. If creating a new plan, select the pricing tier, location, and other options. For more information on App Service plans, see [Azure App Service plans in-depth overview](https://docs.microsoft.com/en-us/azure/app-service/azure-web-sites-web-hosting-plans-in-depth-overview). 
+
+![Image4](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/05-azure-newwebapp.png?raw=true)
+
+
+4. In the **Web App** blade, enter a unique value for the **App Service Name**. 
+
+![Image5](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/06-azure-newappblade.png?raw=true)
+
 5. Select **Create**. Azure will provision and start the web app. 
+
+![Image6](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/07-azure-webappblade.png?raw=true)
 
 ### Enable Git publishing for the new web app[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#enable-git-publishing-for-the-new-web-app)
 
@@ -54,16 +69,19 @@ Git is a distributed version control system that can be used to deploy an Azure 
 2. Select **App Services** to view a list of the app services associated with the Azure subscription. 
 3. Select the web app created in the previous section of this tutorial. 
 4. In the **Deployment** blade, select **Deployment options** &gt; **Choose Source** &gt; **Local Git Repository**. 
+
+![Image7](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/deployment-options.png?raw=true)
+
 5. Select **OK**. 
 6. If deployment credentials for publishing a web app or other App Service app haven't previously been set up, set them up now: 
     - Select **Settings** &gt; **Deployment credentials**. The **Set deployment credentials** blade is displayed.
-    - Create a 
-
-user name and password. Save the password for later use when setting up Git.
+    - Create a user name and password. Save the password for later use when setting up Git.
     - Select **Save**.
 
 7. In the **Web App** blade, select **Settings** &gt; **Properties**. The URL of the remote Git repository to deploy to is shown under **GIT URL**. 
 8. Copy the **GIT URL** value for later use in the tutorial. 
+
+![Image8](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/09-azure-giturl.png?raw=true)
 
 ### Publish the web app to Azure App Service[](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On#publish-the-web-app-to-azure-app-service)
 
@@ -74,25 +92,24 @@ In this section, create a local Git repository using Visual Studio and push from
 - Push project changes from the local repository to the remote repository on Azure.
 
 1. In **Solution Explorer** right-click **Solution 'SampleWebAppDemo'** and select **Commit**. The **Team Explorer** is displayed. 
+
+![Image9](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/10-team-explorer.png?raw=true)
+
 2. In **Team Explorer**, select the **Home** (home icon) &gt; **Settings** &gt; **Repository Settings**. 
 3. In the **Remotes** section of the **Repository Settings**, select **Add**. The **Add Remote**
 
 dialog box is displayed. 
 4. Set the **Name** of the remote to **Azure-SampleApp**. 
-5. Set the value for **Fetch** to the **Git URL** that copied from Azure earlier in this tutorial. Note that this is the URL that ends with **.git**. Note As an alternative, specify the remote repository from the **Command Window** by opening the **Command Window**, 
+5. Set the value for **Fetch** to the **Git URL** that copied from Azure earlier in this tutorial. 
 
-changing to the project directory, and entering the command. Example: 
+![Image10](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/11-add-remote.png?raw=true)
 
-git remote add Azure-SampleApp https://me@sampleapp.scm.azurewebsites.net:443/SampleApp.git  
 6. Select the **Home** (home icon) &gt; **Settings** &gt; **Global Settings**. Confirm that the name and email address are set. Select **Update** if required. 
 7. Select **Home** &gt; **Changes** to return to the **Changes** view. 
-8. Enter a commit message, such as **Initial Push #1** and select **Commit**. This action creates a _commit_ locally. Note As an alternative, commit changes from the **Command Window** by opening the **Command Window**, 
+8. Enter a commit message, such as **Initial Push #1** and select **Commit**. This action creates a _commit_ locally. 
 
-changing to the project directory, and entering the git commands. Example: 
+![Image11](https://github.com/DevScope/HandsOn-ASP.NETCore/tree/master/Session%202%20-%20Hands%20On/images/12-initial-commit.png?raw=true)
 
-git add . 
-
-git commit -am "Initial Push #1"  
 9. Select **Home** &gt; **Sync** &gt; **Actions** &gt; **Open Command Prompt**. The command prompt opens to the project directory. 
 10. Enter the following command in the command window: 
 
